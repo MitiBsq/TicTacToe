@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TicTacToeGame</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="app.js" defer></script>
+</head>
+<body>
+    <header>
+        <h1 id="pageTitle" class="display-1">Welcome to TicTacToe</h1>
+    </header>
+    <div id="chooseGameMode">
+        <h1 class="display-6">Choose your preferd game mode</h1>
+        <div id="submitButtons">
+            <input type="submit" value="Player vs Computer" id="spMode" class="btn btn-primary btn-lg">
+            <input type="submit" value="Player vs Player" id="pvpMode" class="btn btn-primary btn-lg">
+        </div>
+    </div>
+    <div id="gameInterface">
+        <div id="infoGameMode"></div>
+        <div id="playerTurn">
+            <div id="player1" class="players"></div>
+            <div id="player2" class="players"></div>
+        </div>
+        <div id="easyWay">
+            <div id="easyWayText">Do you want to start the game(the easy way) or take it seriously?</div>
+            <div id="easyWayButtons">
+                <button type="button" id="iStart" class="btn btn-dark">Start with "X" </button>
+                <button type="button" id="randomStart" class="btn btn-dark">Take it random</button>
+            </div>
+        </div>
+        <div id="theGame"></div>
+    </div>
+</body>
+</html>
