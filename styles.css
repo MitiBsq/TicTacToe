@@ -4,9 +4,9 @@ input{
      text-align: center; 
 }
 
-button:disabled {
+ button:disabled {
     color: black;
-}
+} 
 
 body {
  background-color: beige;
@@ -37,13 +37,6 @@ header {
     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
     font-size: xx-large;
 }
-
-/* #gameInterface {
-    padding-bottom: 50%;
-    background-image: url('/images/gameBackground.png');
-    background-repeat: no-repeat;
-    background-size: contain;
-} */
 
 #easyWay{
     display: flex;
@@ -81,7 +74,6 @@ header {
     text-align: center;
     margin-top: 7%;
     line-height: 0;
-    
 } 
 
 .editButtons{
