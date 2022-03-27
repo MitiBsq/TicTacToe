@@ -25,11 +25,22 @@
             <div id="player1" class="players"></div>
             <div id="player2" class="players"></div>
         </div>
+        <div id="scoreTable">
+            <div id="scoreTableText"></div>
+            <div id="games"></div>
+            <div id="winsP1"></div>
+            <div id="winsP2"></div>
+            <div id="draws"></div>
+        </div>
         <div id="easyWay">
-            <div id="easyWayText">Do you want to start the game(the easy way) or take it seriously?</div>
+            <div class="easyWayText">Do you want to start the game(the easy way) or take it seriously?</div>
             <div id="easyWayButtons">
                 <button type="button" id="iStart" class="btn btn-dark">Start with "X" </button>
                 <button type="button" id="randomStart" class="btn btn-dark">Take it random</button>
+            </div>
+            <div class="easyWayText"> OR </div>
+            <div id="hardModeButton">
+                <input type="submit" value="Try to beat the HardMode" id="hardMode" class="btn btn-dark btn-lg">
             </div>
         </div>
         <div id="theGame"></div>
