@@ -67,12 +67,16 @@ header {
     justify-content: space-around;
 }
 
+
 #scoreTable {
     display: flex;
     flex-direction: column;
 }
 
 .players{
+    display: flex;
+    justify-content: center;
+    align-items: center;
     text-align: center;
     font-size: larger;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
