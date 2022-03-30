@@ -110,7 +110,7 @@ function applyTheClick(theButton, whoPressed, whoIsNext) {
 //Function for generating the moves of the computer in HardMode(vs Computer in HardMode ONLY)
 const computerHistory = new Array();
 function pcHardMoves() {
-    //Initiating hir fist move(either the middle square or one of the corners)
+    //Initiating the first move(either the middle square or one of the corners)
     if (computerHistory.length === 0) {
         if (document.getElementById('theButton' + 4).innerText === '') {
             computerHistory.push(4);
@@ -123,10 +123,11 @@ function pcHardMoves() {
     } else {
         //Creating the counter-moves against the player(either winning or drawing)
         let newMove = new Object();
+        let missingMoveWin;
+        let missingMoveDraw;
         for (let i = 0; i < NecessaryToWin.length; ++i) {
             let check = 0;
             let checkWin = 0;
-            let missingMove = 0;
             //If the players has the potential for a winning combination (1 move left) the computer blocks his move, if the computer has 1 move left to win that move is instead the choice
             for (let j = 0; j < 3; ++j) {
                 if (document.getElementById('theButton' + NecessaryToWin[i][j]).innerText === 'X') {
@@ -139,19 +140,16 @@ function pcHardMoves() {
             if (checkWin > 1) {
                 for (let j = 0; j < 3; ++j) {
                     if (document.getElementById('theButton' + NecessaryToWin[i][j]).innerText === '') {
-                        missingMove = NecessaryToWin[i][j];
+                        missingMoveWin = NecessaryToWin[i][j];
+                        break;
                     }
                 }
-                document.getElementById('theButton' + missingMove).click();
-                return
             } else if (check > 1) {
                 for (let j = 0; j < 3; ++j) {
                     if (document.getElementById('theButton' + NecessaryToWin[i][j]).innerText === '') {
-                        missingMove = NecessaryToWin[i][j];
+                        missingMoveDraw = NecessaryToWin[i][j];
                     }
                 }
-                document.getElementById('theButton' + missingMove).click();
-                return
             }
             //If no winnable or equaliser move is proccesed
             if (check === 0) {
@@ -163,6 +161,14 @@ function pcHardMoves() {
                 //Adding a backup set of moves  for the case above(adding the moves in order)
                 newMove[check] = NecessaryToWin[i];
             }
+        }
+        //Applying the winnable move or if is not the case then the draw
+        if (missingMoveWin !== undefined) {
+            document.getElementById('theButton' + missingMoveWin).click();
+            return
+        } else if (missingMoveDraw !== undefined) {
+            document.getElementById('theButton' + missingMoveDraw).click();
+            return
         }
         //Applying the backup moves
         if (moveTurn === 'player2') {
@@ -330,6 +336,18 @@ function checkIfDraw() {
     if (NecessaryToWin.length === 0) {
         thisLooksLikeADraw();
         return
+    } else if (NecessaryToWin.length === 1) {
+        //If there is a winning combination but the remaining 2 buttons are in that combination, this is skiping the process of knowing is a draw and still pressing the button
+        let check = 0;
+        for (let i = 0; i < 9; i++) {
+            if (document.getElementById('theButton' + i).innerText === '' && NecessaryToWin[0].includes(i) === true) {
+                ++check;
+            }
+        }
+        if (check < 3) {
+            thisLooksLikeADraw();
+            return
+        }
     }
 }
 
