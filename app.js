@@ -8,7 +8,7 @@ function multiPlayer() {
     displayTheGame("MultiPlayer Mode", 'none');
     editPlayerStatus('player1', 'flex', 'Player 1', 'transparent');
     editPlayerStatus('player2', 'flex', 'Player 2', 'transparent');
-    whoIsWhat("pvpMode(p1PlayWith, p2PlayWith, i)", 'random');
+    whoIsWhat('', 'random');
 }
 
 //The main function for single player mode
